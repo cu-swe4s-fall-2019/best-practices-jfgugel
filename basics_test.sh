@@ -45,3 +45,26 @@ assert_in_stdout 3
 run stdev_test python3 get_column_stats.py stdev()
 assert_exit_code 1
 assert_no_stdout
+
+
+#testing stdout
+run mean_test python3 -c "print 'example assert_in_stdout success'"
+assert_in_stdout "example"
+
+run mean_test stdout python3 -c "import sys; sys.stderr.write('example assert_in_stdout failure')"
+assert_in_stdout "example"
+
+run mean_test python3 -c "print 'example assert_in_stdout success'"
+assert_in_stdout "simple test"
+
+
+#testing the error code
+run mean_test python3 -c "print 1;"
+assert_exit_code $EX_OK 
+
+run mean_test python3 -c "import sys; sys.exit(66);"
+assert_exit_code $EX_NOINPUT 
+
+# Fails because the error code is wrong
+run mean_test python3 -c "import sys; sys.exit(66);"
+assert_exit_code $EX_USAGE 
