@@ -24,5 +24,10 @@
     # added 6 tests to basics_test.py All tests passed
     # 3 tests included in basics_test.sh
     
+# Version 2 Updates
+    # Made sure I had 3 exceptions
+    # Added branches 
+    # Added main function
+    
     
     

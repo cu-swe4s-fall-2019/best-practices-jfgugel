@@ -51,8 +51,16 @@ def stdev(V):
         return stdev
 
     
-#added an additional exception
+#added an exception for index outside the array
 
+A = [1, 2, 3, 4]
+
+try: 
+    print(A[4])
+except:
+    print('something went wrong, not sure what')
+
+#added an exception for file that can't be opened
  def append_to_file(file_name):
     f = None
     try:
@@ -66,9 +74,6 @@ def stdev(V):
             
     
     
-#use main function
-
-if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
 
@@ -84,6 +89,7 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
+#argparse exception
     try: 
         file = open(args.file_name, 'r')
     except FileNotFoundError:
@@ -110,3 +116,8 @@ if __name__ == '__main__':
 
     print('mean:', mean(V))
     print('stdev:', stdev(V))
+   
+
+#use of main function 
+if __name__ == '__main__':
+    main()
