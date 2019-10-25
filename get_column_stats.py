@@ -50,7 +50,23 @@ def stdev(V):
         stdev = math.sqrt(sum([(mean(V)-x)**2 for x in V]) / len(V))
         return stdev
 
+    
+#added an additional exception
 
+ def append_to_file(file_name):
+    f = None
+    try:
+        f = open(file_name, 'r')
+        except FileNotFoundError:
+            print('Could not find ' + file_name)
+        except PermissionError:
+            print('Could not open ' + file_name)
+        finally:
+            return f
+            
+    
+    
+#use main function
 
 if __name__ == '__main__':
 
